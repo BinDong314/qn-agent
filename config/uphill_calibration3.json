@@ -1,0 +1,22 @@
+{
+	"id": "uphill_calibration_3",
+	"Name": "866 Frequency Calibration",
+	"Purpose": "Find the resonance for 866, and use this to calibrate both state readout and doppler cooling frequencies.",
+	"Derived_parameters": [
+		"866_cooling_freq",
+		"866_readout_frequency"
+	],
+	"Periodicity": 3600,
+	"Dependency": ["uphill_calibration_2"],
+	"Status_check": null,
+	"Lightweight_calibration": null,
+	"Full_scale_calibration": {
+		"Function": "experiments/Calibrations/cal_freq_866.py",
+		"Class": "Cal866Freq",
+		"Scanning_parameters": "866_AOM_Frequency",
+		"Result_parameters": ["current_scan.plots.x", "current_scan.plots.y"],
+		"Experiment_parameters": {"use_db":true},
+		"Maximum_duration": 10,
+		"Analysis_function": null
+	}
+}

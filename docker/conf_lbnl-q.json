@@ -1,0 +1,129 @@
+{
+  "systemSettings": {
+    "type": "QNode",
+    "name": "q-node1.lbl.gov",
+    "ID": "LBNL-Q",
+    "controlInterface": "10.0.0.3",
+    "mode": "daemon",
+    "threads": 3,
+    "workers": 3
+  },
+  "qubitSettings": {
+    "qubits": [
+      {
+        "ID": "1",
+        "quantumObject": "trapped_ion",
+        "T1": "1.5s",
+        "T2": "1.1s",
+        "type": "communication"
+      },
+      {
+        "ID": "2",
+        "quantumObject": "trapped_ion",
+        "T1": "1.5s",
+        "T2": "1.1s",
+        "type": "communication"
+      }
+    ],
+    "operations": {
+      "oneQubitGates": [
+        {
+          "gate": "rot_x",
+          "qubits": ["1", "2"]
+        },
+        {
+          "gate": "rot_y",
+          "qubits": ["1", "2"]
+        },
+        {
+          "gate": "rot_z",
+          "qubits": ["1", "2"]
+        }
+      ],
+      "twoQubitGates": [
+        {
+          "gate": "cnot",
+          "qubits": [["1","2"]]
+        },
+        {
+          "gate": "cphase",
+          "qubits": [["1","2"]]
+        }
+      ]
+    }
+  },
+  "matterLightInterfaceSettings": [
+    {
+      "name": "Interface 1",
+      "interface": "1",
+      "entanglement": {
+        "type": "∣Φ+⟩",
+        "rate": "1000 Hz"
+      },
+      "flyingQubit": {
+        "type": "polarization",
+        "frequency": "1550nm"
+      },
+      "channels": [
+        {
+          "ID": "1",
+          "name": "channel_1",
+          "type": "quantum",
+          "direction": "out",
+          "wavelength": "1550 nm",
+          "power": 12.1,
+          "neighbor": {
+            "idRef": "urn:quant-net:LBNL-BSM:alice:4",
+            "systemRef": "LBNL-BSM",
+            "channelRef": "4",
+            "loss": "5dB"
+          }
+        },
+        {
+          "ID": "2",
+          "name": "channel_2",
+          "type": "classic_clk",
+          "direction": "in",
+          "wavelength": "1520 nm",
+          "power": -3.2,
+          "neighbor": {
+            "idRef": "urn:quant-net:LBNL-BSM:alice:3",
+            "systemRef": "LBNL-BSM",
+            "channelRef": "3",
+            "loss": "5dB"
+          }
+        },
+        {
+          "ID": "3",
+          "name": "channel_3",
+          "type": "classic_bsm_result",
+          "direction": "in",
+          "wavelength": "1530 nm",
+          "power": -4.7,
+          "neighbor": {
+            "idRef": "urn:quant-net:LBNL-BSM:alice:2",
+            "systemRef": "LBNL-BSM",
+            "channelRef": "2",
+            "loss": "5dB"
+          }
+        },
+        {
+          "ID": "4",
+          "name": "channel_4",
+          "type": "classic_photon_gen",
+          "direction": "in",
+          "wavelength": "1540 nm",
+          "power": -3.2,
+          "neighbor": {
+            "idRef": "urn:quant-net:LBNL-BSM:alice:1",
+            "systemRef": "LBNL-BSM",
+            "channelRef": "1",
+            "loss": "5dB"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+

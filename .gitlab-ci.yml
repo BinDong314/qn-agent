@@ -1,0 +1,7 @@
+stages:
+  - build
+  - test
+  - deploy
+
+include:
+  - local: '.gitlab/pipelines/docker.yml'

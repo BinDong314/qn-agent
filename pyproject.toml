@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantnet-agent"
+authors = [
+  { name="ESnet", email="quantum@es.net" },
+]
+description = "The QN Agent for Quant-Net Control Plane"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "BSD-3-Clause-LBNL"
+license-files = ["LICEN[CS]E*"]
+dynamic = [
+    "version",
+    "dependencies"
+]
+
+[project.urls]
+Homepage = "https://github.com/quant-net/quant-net-agent"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+version = {attr = "quantnet_agent.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["quantnet_agent", "quantnet_agent.*"]
+
+[project.scripts]
+quantnet_agent = "quantnet_agent.cli:main"

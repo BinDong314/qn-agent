@@ -1,0 +1,22 @@
+{
+	"id": "UCB_calibration_397_frequency",
+	"Name": "397 Frequency Calibration",
+	"Purpose": "Find the resonance for the cycling transition S1/2→P1/2 near 397 nm, and use this to calibrate both state readout and doppler cooling frequencies.",
+	"Derived_parameters": [
+		"DC_freq_397",
+		"SR_freq_397"
+	],
+	"Periodicity": 300,
+	"Dependency": null,
+	"Status_check": null,
+	"Lightweight_calibration": null,
+	"Full_scale_calibration": {
+		"Function": "experiments/Calibrations/cal_397_frequency.py",
+		"Class": "Cal397Freq",
+		"Scanning_parameters": "CF_frequency_397",
+		"Result_parameters": ["current_scan.plots.x", "current_scan.plots.y"],
+		"Experiment_parameters":{},
+		"Maximum_duration": 10,
+		"Analysis_function": null
+	}
+}

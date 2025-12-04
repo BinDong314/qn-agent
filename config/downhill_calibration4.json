@@ -1,0 +1,22 @@
+{
+	"id": "UCB_calibration_866_Attenuation",
+	"Name": "866 Attenuation Calibration",
+	"Purpose": "Find the saturation power for the cycling transition D3/2→P1/2 near 866 nm, and use this to calibrate both the state readout and doppler cooling powers.",
+	"Derived_parameters": [
+		"DC_att_866",
+		"SR_att_866"
+	],
+	"Periodicity": 300,
+	"Dependency": ["UCB_calibration_866_frequency"],
+	"Status_check": null,
+	"Lightweight_calibration": null,
+	"Full_scale_calibration": {
+		"Function": "experiments/Calibrations/cal_866_attenuation.py",
+		"Class": "Cal866Att",
+		"Scanning_parameters": "CA_att_866",
+		"Result_parameters": ["current_scan.plots.x", "current_scan.plots.y"],
+		"Experiment_parameters": {},
+		"Maximum_duration": 10,
+		"Analysis_function": null
+	}
+}

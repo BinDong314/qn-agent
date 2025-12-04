@@ -1,0 +1,172 @@
+{
+  "systemSettings": {
+    "type": "BSMNode",
+    "name": "bsm-node1.lbl.gov",
+    "ID": "LBNL-BSM",
+    "controlInterface": "10.0.0.11",
+    "mode": "daemon",
+    "threads": 5,
+    "workers": 5
+  },
+  "quantumSettings": {
+    "bellStates": ["∣Φ+⟩", "∣Φ−⟩", "∣Ψ+⟩", "∣Ψ−⟩"],
+    "measurementRate": "1000 Hz",
+    "qubitEncoding": "polarization",
+    "detectorSettings": [
+      {
+        "name": "detector_1",
+	"efficiency": "0.99",
+	"darkCount": "1",
+	"countRate": "1000 Hz",
+	"timeResolution": "100 ns"
+      },
+      {
+        "name": "detector_2",
+	"efficiency": "0.99",
+	"darkCount": "1",
+	"countRate": "1000 Hz",
+	"timeResolution": "100 ns"
+      },
+      {
+        "name": "detector_3",
+	"efficiency": "0.99",
+	"darkCount": "1",
+	"countRate": "1000 Hz",
+	"timeResolution": "100 ns"
+      },
+      {
+        "name": "detector_4",
+	"efficiency": "0.99",
+	"darkCount": "1",
+	"countRate": "1000 Hz",
+	"timeResolution": "100 ns"
+      }
+    ]
+  },
+  "channels": {
+    "alice": [
+      {
+        "ID": "1",
+        "name": "channel_1",
+        "type": "classic_photon_gen",
+        "direction": "out",
+        "wavelength": "1000 nm",
+        "power": 2.3,
+        "neighbor": {
+          "idRef": "urn:quant-net:LBNL-SWITCH:*:1",
+          "systemRef": "LBNL-SWITCH",
+          "channelRef": "1",
+	      "type": "OpticalSwitch",
+	      "loss": "N/A"
+        }
+      },
+      {
+        "ID": "2",
+        "name": "channel_2",
+        "type": "classic_bsm_result",
+        "direction": "out",
+        "wavelength": "1310 nm",
+        "power": 1.4,
+        "neighbor": {
+          "idRef": "urn:quant-net:LBNL-SWITCH:*:2",
+          "systemRef": "LBNL-SWITCH",
+          "channelRef": "3",
+	      "type": "OpticalSwitch",
+	      "loss": "N/A"
+        }
+      },
+      {
+        "ID": "3",
+        "name": "channel_3",
+        "type": "classic_clk",
+        "direction": "out",
+        "wavelength": "1310 nm",
+        "power": 4.4,
+        "neighbor": {
+          "idRef": "urn:quant-net:LBNL-SWITCH:*:3",
+	      "systemRef": "LBNL-SWITCH",
+          "channelRef": "2",
+          "type": "OpticalSwitch",
+	      "loss": "N/A"
+        }
+      },
+      {
+        "ID": "4",
+        "name": "channel_4",
+        "type": "quantum",
+        "direction": "in",
+        "wavelength": "1550 nm",
+        "power": -3.2,
+        "neighbor": {
+          "idRef": "urn:quant-net:LBNL-SWITCH:*:4",
+	      "systemRef": "LBNL-SWITCH",
+          "channelRef": "1",
+	      "type": "OpticalSwitch",
+	      "loss": "N/A"
+        }
+      }
+    ],
+    "bob": [
+      {
+        "ID": "5",
+        "name": "channel_5",
+        "type": "classic_photon_gen",
+        "direction": "out",
+        "wavelength": "1000 nm",
+        "power": 2.2,
+        "neighbor": {
+          "idRef": "urn:quant-net:LBNL-SWITCH:*:21",
+          "systemRef": "LBNL-SWITCH",
+          "channelRef": "21",
+	      "type": "OpticalSwitch",
+	      "loss": "N/A"
+        }
+      },
+      {
+        "ID": "6",
+        "name": "channel_6",
+        "type": "classic_bsm_result",
+        "direction": "out",
+        "wavelength": "1310 nm",
+        "power": 2.2,
+        "neighbor": {
+          "idRef": "urn:quant-net:LBNL-SWITCH:*:22",
+          "systemRef": "LBNL-SWITCH",
+          "channelRef": "22",
+	      "type": "OpticalSwitch",
+	      "loss": "N/A"
+        }
+      },
+      {
+        "ID": "7",
+        "name": "channel_7",
+        "type": "classic_clk",
+        "direction": "out",
+        "wavelength": "1310 nm",
+        "power": 2.2,
+        "neighbor": {
+          "idRef": "urn:quant-net:LBNL-SWITCH:*:23",
+          "systemRef": "LBNL-SWITCH",
+          "channelRef": "23",
+	      "type": "OpticalSwitch",
+	      "loss": "N/A"
+        }
+      },
+      {
+        "ID": "8",
+        "name": "channel_8",
+        "type": "quantum",
+        "direction": "in",
+        "wavelength": "1550 nm",
+        "power": -13.2,
+        "neighbor": {
+          "idRef": "urn:quant-net:LBNL-SWITCH:*:24",
+          "systemRef": "LBNL-SWITCH",
+          "channelRef": "24",
+	      "type": "OpticalSwitch",
+	      "loss": "N/A"
+        }
+      }
+    ]
+  }
+}

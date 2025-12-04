@@ -1,0 +1,22 @@
+{
+	"id": "uphill_calibration_1",
+	"Name": "397 Frequency Calibration",
+	"Purpose": "Find the resonance for the cycling transition S1/2→P1/2 near 397 nm, and use this to calibrate both state readout and doppler cooling frequencies.",
+	"Derived_parameters": [
+		"397_cooling_freq",
+		"397_readout_frequency"
+	],
+	"Periodicity": 3600,
+	"Dependency": null,
+	"Status_check": null,
+	"Lightweight_calibration": null,
+	"Full_scale_calibration": {
+		"Function": "experiments/Calibrations/cal_doppler_cooling.py",
+		"Class": "CalDopplerCoolingFreq",
+		"Scanning_parameters": "397_AOM_Frequency",
+		"Result_parameters": ["current_scan.plots.x", "current_scan.plots.y"],
+		"Experiment_parameters": {"use_db":true},
+		"Maximum_duration": 10,
+		"Analysis_function": null
+	}
+}

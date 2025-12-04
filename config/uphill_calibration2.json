@@ -1,0 +1,21 @@
+{
+	"id": "uphill_calibration_2",
+	"Name": "397 Attenuation Calibration",
+	"Purpose": "Find the saturation power for the cycling transition S1/2→P1/2 near 397 nm, and use this to calibrate both the state readout and doppler cooling powers.",
+	"Derived_parameters": [
+		"397_cooling_attenuation", "397_readout_attenuation"
+	],
+	"Periodicity": 3600,
+	"Dependency": ["uphill_calibration_1"],
+	"Status_check": null,
+	"Lightweight_calibration": null,
+	"Full_scale_calibration": {
+		"Function": "experiments/Calibrations/cal_doppler_cooling_power.py",
+		"Class": "CalDopplerCoolingPower",
+		"Scanning_parameters": "397_AOM_Frequency",
+		"Result_parameters": ["current_scan.plots.x", "current_scan.plots.y"],
+		"Experiment_parameters": {"use_db":true},
+		"Maximum_duration": 10,
+		"Analysis_function": null
+	}
+}

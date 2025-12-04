@@ -1,0 +1,21 @@
+{
+	"id": "uphill_calibration_4",
+	"Name": "866 Attenuation Calibration",
+	"Purpose": "Find the saturation power for 866, and use this to calibrate both the state readout and doppler cooling powers.",
+	"Derived_parameters": [
+		"866_cooling_attenuation", "866_readout_attenuation"
+	],
+	"Periodicity": 3600,
+	"Dependency": ["uphill_calibration_3"],
+	"Status_check": null,
+	"Lightweight_calibration": null,
+	"Full_scale_calibration": {
+		"Function": "experiments/Calibrations/cal_att_866.py",
+		"Class": "Cal866Power",
+		"Scanning_parameters": "866_AOM_Frequency",
+		"Result_parameters": ["current_scan.plots.x", "current_scan.plots.y"],
+		"Experiment_parameters": {"use_db":true},
+		"Maximum_duration": 10,
+		"Analysis_function": null
+	}
+}
